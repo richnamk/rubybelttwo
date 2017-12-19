@@ -1,0 +1,23 @@
+
+<body>
+<hr><hr>
+<h1>Group profile</h1>
+<br>
+<h1><%=@group.name%></h1>
+<h3>Description"<%=@group.description%>"</h3>
+<h3>Created by <%=@group.user%></h3>
+
+<a href='/groups/<%= @group.id %>/joins_path' data-method="post">Join</a>
+
+
+<a href='/groups/<%=@group.id%>/join_path' data-method="delete">Leave</a>
+
+<h1>Group members: <%= @group.users.count%></h1>
+<h4>
+<% if @group.users %>
+<% @group.users.each do |user|%></h4>
+    <h3><%=user.alias_name%></h3>
+<% end %>
+<% end %>
+
+</body>
